@@ -1,0 +1,19 @@
+version: '3'
+services:
+  student_service:
+    build: ./student_service
+    ports:
+      - "5001:5001"
+
+  course_service:
+    build: ./course_service
+    ports:
+      - "5002:5002"
+
+  enrollment_service:
+    build: ./enrollment_service
+    ports:
+      - "5003:5003"
+    depends_on:
+      - student_service
+      - course_service
